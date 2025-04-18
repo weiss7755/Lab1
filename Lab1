@@ -1,0 +1,74 @@
+using System;
+public class KindofAntelopes
+{
+    private string Name, Area;
+    private char Group;
+    private int Population;
+    public KindofAntelopes ()
+    {
+        Name = "Невідома";
+        Group = '-';
+        Area = "Невідоме";
+        Population = 0;
+    }
+    
+    public KindofAntelopes (string name, char group, string area, int population)
+    {
+        Name = name;
+        Group = group;
+        Area = area;
+        Population = population;
+    }
+    
+    public KindofAntelopes(KindofAntelopes other)
+    {
+        Name = other.Name;
+        Group = other.Group;
+        Area = other.Area;
+        Population = other.Population;
+    }
+    public string name
+    {
+        get { return Name; }
+        set { Name = value; }
+    }
+
+    public char group
+    {
+        get { return Group; }
+        set { Group = value; }
+    }
+
+    public string area
+    {
+        get { return Area; }
+        set { Area = value; }
+    }
+
+    public int population
+    {
+        get { return Population; }
+        set
+        {
+            if (value >= 0)
+                Population = value;
+            else
+                Console.WriteLine("Чисельність не може бути від'ємною!");
+        }
+    }
+     public void Display()
+    {
+        Console.WriteLine($"Назва: {Name}, Група: {Group}, Житло: {Area}, Чисельність: {Population}");
+    }
+}
+class Program {
+  static void Main() {
+    KindofAntelopes jrun = new KindofAntelopes("Джейран", 'А', "Азія", 30000 );
+     KindofAntelopes gnu = new KindofAntelopes("Гну", 'В', "Африка", 560000 );
+      KindofAntelopes beisa = new KindofAntelopes("Джейран", 'Н', "Африка", 2500 );
+      
+      jrun.Display();
+      gnu.Display();
+      beisa.Display();
+  }
+}
